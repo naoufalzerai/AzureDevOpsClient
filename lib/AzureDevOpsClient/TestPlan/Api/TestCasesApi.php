@@ -161,7 +161,7 @@ class TestCasesApi
     /**
      * Operation testCasesDeleteAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $project Project ID or project name (required)
@@ -184,7 +184,7 @@ class TestCasesApi
     /**
      * Operation testCasesDeleteAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $project Project ID or project name (required)
@@ -315,7 +315,7 @@ class TestCasesApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -348,7 +348,7 @@ class TestCasesApi
         }
 
         // this endpoint requires HTTP basic authentication
-        if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+        else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
             $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
         }
 

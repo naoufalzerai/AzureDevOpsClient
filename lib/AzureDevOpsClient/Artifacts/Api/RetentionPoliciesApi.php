@@ -161,7 +161,7 @@ class RetentionPoliciesApi
     /**
      * Operation retentionPoliciesDeleteRetentionPolicyAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $feedId Name or ID of the feed. (required)
@@ -184,7 +184,7 @@ class RetentionPoliciesApi
     /**
      * Operation retentionPoliciesDeleteRetentionPolicyAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $feedId Name or ID of the feed. (required)
@@ -315,7 +315,7 @@ class RetentionPoliciesApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -352,7 +352,7 @@ class RetentionPoliciesApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 
@@ -445,7 +445,7 @@ class RetentionPoliciesApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -473,7 +473,7 @@ class RetentionPoliciesApi
     /**
      * Operation retentionPoliciesGetRetentionPolicyAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $feedId Name or ID of the feed. (required)
@@ -496,7 +496,7 @@ class RetentionPoliciesApi
     /**
      * Operation retentionPoliciesGetRetentionPolicyAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $feedId Name or ID of the feed. (required)
@@ -521,7 +521,7 @@ class RetentionPoliciesApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -641,7 +641,7 @@ class RetentionPoliciesApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -678,7 +678,7 @@ class RetentionPoliciesApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 
@@ -773,7 +773,7 @@ class RetentionPoliciesApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -801,7 +801,7 @@ class RetentionPoliciesApi
     /**
      * Operation retentionPoliciesSetRetentionPolicyAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  \FrankHouweling\AzureDevOpsClient\Artifacts\Model\FeedRetentionPolicy $body Feed retention policy. (required)
@@ -825,7 +825,7 @@ class RetentionPoliciesApi
     /**
      * Operation retentionPoliciesSetRetentionPolicyAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  \FrankHouweling\AzureDevOpsClient\Artifacts\Model\FeedRetentionPolicy $body Feed retention policy. (required)
@@ -851,7 +851,7 @@ class RetentionPoliciesApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -981,7 +981,7 @@ class RetentionPoliciesApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -1018,7 +1018,7 @@ class RetentionPoliciesApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 

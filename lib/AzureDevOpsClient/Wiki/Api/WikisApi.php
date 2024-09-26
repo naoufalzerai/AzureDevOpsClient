@@ -156,7 +156,7 @@ class WikisApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -184,7 +184,7 @@ class WikisApi
     /**
      * Operation wikisCreateAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  \FrankHouweling\AzureDevOpsClient\Wiki\Model\WikiCreateParametersV2 $body Parameters for the wiki creation. (required)
@@ -207,7 +207,7 @@ class WikisApi
     /**
      * Operation wikisCreateAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  \FrankHouweling\AzureDevOpsClient\Wiki\Model\WikiCreateParametersV2 $body Parameters for the wiki creation. (required)
@@ -232,7 +232,7 @@ class WikisApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -347,7 +347,7 @@ class WikisApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -384,7 +384,7 @@ class WikisApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 
@@ -477,7 +477,7 @@ class WikisApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -505,7 +505,7 @@ class WikisApi
     /**
      * Operation wikisDeleteAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $wikiIdentifier Wiki ID or wiki name. (required)
@@ -528,7 +528,7 @@ class WikisApi
     /**
      * Operation wikisDeleteAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $wikiIdentifier Wiki ID or wiki name. (required)
@@ -553,7 +553,7 @@ class WikisApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -673,7 +673,7 @@ class WikisApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -710,7 +710,7 @@ class WikisApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 
@@ -803,7 +803,7 @@ class WikisApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -831,7 +831,7 @@ class WikisApi
     /**
      * Operation wikisGetAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $wikiIdentifier Wiki ID or wiki name. (required)
@@ -854,7 +854,7 @@ class WikisApi
     /**
      * Operation wikisGetAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $wikiIdentifier Wiki ID or wiki name. (required)
@@ -879,7 +879,7 @@ class WikisApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -999,7 +999,7 @@ class WikisApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -1036,7 +1036,7 @@ class WikisApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 
@@ -1127,7 +1127,7 @@ class WikisApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -1155,7 +1155,7 @@ class WikisApi
     /**
      * Operation wikisListAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $project Project ID or project name (required)
@@ -1177,7 +1177,7 @@ class WikisApi
     /**
      * Operation wikisListAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $project Project ID or project name (required)
@@ -1201,7 +1201,7 @@ class WikisApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -1306,7 +1306,7 @@ class WikisApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -1343,7 +1343,7 @@ class WikisApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 
@@ -1438,7 +1438,7 @@ class WikisApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -1466,7 +1466,7 @@ class WikisApi
     /**
      * Operation wikisUpdateAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  \FrankHouweling\AzureDevOpsClient\Wiki\Model\WikiUpdateParameters $body Update parameters. (required)
@@ -1490,7 +1490,7 @@ class WikisApi
     /**
      * Operation wikisUpdateAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  \FrankHouweling\AzureDevOpsClient\Wiki\Model\WikiUpdateParameters $body Update parameters. (required)
@@ -1516,7 +1516,7 @@ class WikisApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -1646,7 +1646,7 @@ class WikisApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -1683,7 +1683,7 @@ class WikisApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 

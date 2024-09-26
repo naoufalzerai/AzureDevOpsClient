@@ -160,7 +160,7 @@ class PullRequestsApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -188,7 +188,7 @@ class PullRequestsApi
     /**
      * Operation pullRequestsCreateAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  \FrankHouweling\AzureDevOpsClient\Git\Model\GitPullRequest $body The pull request to create. (required)
@@ -213,7 +213,7 @@ class PullRequestsApi
     /**
      * Operation pullRequestsCreateAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  \FrankHouweling\AzureDevOpsClient\Git\Model\GitPullRequest $body The pull request to create. (required)
@@ -240,7 +240,7 @@ class PullRequestsApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -375,7 +375,7 @@ class PullRequestsApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -412,7 +412,7 @@ class PullRequestsApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 
@@ -517,7 +517,7 @@ class PullRequestsApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -545,7 +545,7 @@ class PullRequestsApi
     /**
      * Operation pullRequestsGetPullRequestAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $repositoryId The repository ID of the pull request&#39;s target branch. (required)
@@ -574,7 +574,7 @@ class PullRequestsApi
     /**
      * Operation pullRequestsGetPullRequestAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $repositoryId The repository ID of the pull request&#39;s target branch. (required)
@@ -605,7 +605,7 @@ class PullRequestsApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -765,7 +765,7 @@ class PullRequestsApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -802,7 +802,7 @@ class PullRequestsApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 
@@ -895,7 +895,7 @@ class PullRequestsApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -923,7 +923,7 @@ class PullRequestsApi
     /**
      * Operation pullRequestsGetPullRequestByIdAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  int $pullRequestId The ID of the pull request to retrieve. (required)
@@ -946,7 +946,7 @@ class PullRequestsApi
     /**
      * Operation pullRequestsGetPullRequestByIdAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  int $pullRequestId The ID of the pull request to retrieve. (required)
@@ -971,7 +971,7 @@ class PullRequestsApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -1091,7 +1091,7 @@ class PullRequestsApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -1128,7 +1128,7 @@ class PullRequestsApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 
@@ -1243,7 +1243,7 @@ class PullRequestsApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -1271,7 +1271,7 @@ class PullRequestsApi
     /**
      * Operation pullRequestsGetPullRequestsAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $repositoryId The repository ID of the pull request&#39;s target branch. (required)
@@ -1305,7 +1305,7 @@ class PullRequestsApi
     /**
      * Operation pullRequestsGetPullRequestsAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $repositoryId The repository ID of the pull request&#39;s target branch. (required)
@@ -1341,7 +1341,7 @@ class PullRequestsApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -1516,7 +1516,7 @@ class PullRequestsApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -1553,7 +1553,7 @@ class PullRequestsApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 
@@ -1666,7 +1666,7 @@ class PullRequestsApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -1694,7 +1694,7 @@ class PullRequestsApi
     /**
      * Operation pullRequestsGetPullRequestsByProjectAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $project Project ID or project name (required)
@@ -1727,7 +1727,7 @@ class PullRequestsApi
     /**
      * Operation pullRequestsGetPullRequestsByProjectAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $project Project ID or project name (required)
@@ -1762,7 +1762,7 @@ class PullRequestsApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -1922,7 +1922,7 @@ class PullRequestsApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -1959,7 +1959,7 @@ class PullRequestsApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 
@@ -2056,7 +2056,7 @@ class PullRequestsApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -2084,7 +2084,7 @@ class PullRequestsApi
     /**
      * Operation pullRequestsUpdateAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  \FrankHouweling\AzureDevOpsClient\Git\Model\GitPullRequest $body The pull request content that should be updated. (required)
@@ -2109,7 +2109,7 @@ class PullRequestsApi
     /**
      * Operation pullRequestsUpdateAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  \FrankHouweling\AzureDevOpsClient\Git\Model\GitPullRequest $body The pull request content that should be updated. (required)
@@ -2136,7 +2136,7 @@ class PullRequestsApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -2281,7 +2281,7 @@ class PullRequestsApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -2318,7 +2318,7 @@ class PullRequestsApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 

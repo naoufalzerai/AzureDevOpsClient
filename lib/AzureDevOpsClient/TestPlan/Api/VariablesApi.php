@@ -156,7 +156,7 @@ class VariablesApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -184,7 +184,7 @@ class VariablesApi
     /**
      * Operation variablesCreateAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  \FrankHouweling\AzureDevOpsClient\TestPlan\Model\TestVariableCreateUpdateParameters $body TestVariableCreateUpdateParameters (required)
@@ -207,7 +207,7 @@ class VariablesApi
     /**
      * Operation variablesCreateAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  \FrankHouweling\AzureDevOpsClient\TestPlan\Model\TestVariableCreateUpdateParameters $body TestVariableCreateUpdateParameters (required)
@@ -232,7 +232,7 @@ class VariablesApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -347,7 +347,7 @@ class VariablesApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -384,7 +384,7 @@ class VariablesApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 
@@ -482,7 +482,7 @@ class VariablesApi
     /**
      * Operation variablesDeleteAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $project Project ID or project name (required)
@@ -505,7 +505,7 @@ class VariablesApi
     /**
      * Operation variablesDeleteAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $project Project ID or project name (required)
@@ -636,7 +636,7 @@ class VariablesApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -673,7 +673,7 @@ class VariablesApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 
@@ -766,7 +766,7 @@ class VariablesApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -794,7 +794,7 @@ class VariablesApi
     /**
      * Operation variablesGetAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $project Project ID or project name (required)
@@ -817,7 +817,7 @@ class VariablesApi
     /**
      * Operation variablesGetAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $project Project ID or project name (required)
@@ -842,7 +842,7 @@ class VariablesApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -962,7 +962,7 @@ class VariablesApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -999,7 +999,7 @@ class VariablesApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 
@@ -1092,7 +1092,7 @@ class VariablesApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -1120,7 +1120,7 @@ class VariablesApi
     /**
      * Operation variablesListAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $project Project ID or project name (required)
@@ -1143,7 +1143,7 @@ class VariablesApi
     /**
      * Operation variablesListAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $project Project ID or project name (required)
@@ -1168,7 +1168,7 @@ class VariablesApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -1278,7 +1278,7 @@ class VariablesApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -1315,7 +1315,7 @@ class VariablesApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 
@@ -1410,7 +1410,7 @@ class VariablesApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -1438,7 +1438,7 @@ class VariablesApi
     /**
      * Operation variablesUpdateAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  \FrankHouweling\AzureDevOpsClient\TestPlan\Model\TestVariableCreateUpdateParameters $body TestVariableCreateUpdateParameters (required)
@@ -1462,7 +1462,7 @@ class VariablesApi
     /**
      * Operation variablesUpdateAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  \FrankHouweling\AzureDevOpsClient\TestPlan\Model\TestVariableCreateUpdateParameters $body TestVariableCreateUpdateParameters (required)
@@ -1488,7 +1488,7 @@ class VariablesApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -1618,7 +1618,7 @@ class VariablesApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -1655,7 +1655,7 @@ class VariablesApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 

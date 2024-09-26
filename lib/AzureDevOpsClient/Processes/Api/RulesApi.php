@@ -158,7 +158,7 @@ class RulesApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -186,7 +186,7 @@ class RulesApi
     /**
      * Operation rulesAddAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  \FrankHouweling\AzureDevOpsClient\Processes\Model\CreateProcessRuleRequest $body  (required)
@@ -210,7 +210,7 @@ class RulesApi
     /**
      * Operation rulesAddAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  \FrankHouweling\AzureDevOpsClient\Processes\Model\CreateProcessRuleRequest $body  (required)
@@ -236,7 +236,7 @@ class RulesApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -366,7 +366,7 @@ class RulesApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -403,7 +403,7 @@ class RulesApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 
@@ -503,7 +503,7 @@ class RulesApi
     /**
      * Operation rulesDeleteAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $processId The ID of the process (required)
@@ -527,7 +527,7 @@ class RulesApi
     /**
      * Operation rulesDeleteAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $processId The ID of the process (required)
@@ -674,7 +674,7 @@ class RulesApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -711,7 +711,7 @@ class RulesApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 
@@ -806,7 +806,7 @@ class RulesApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -834,7 +834,7 @@ class RulesApi
     /**
      * Operation rulesGetAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $processId The ID of the process (required)
@@ -858,7 +858,7 @@ class RulesApi
     /**
      * Operation rulesGetAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $processId The ID of the process (required)
@@ -884,7 +884,7 @@ class RulesApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -1019,7 +1019,7 @@ class RulesApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -1056,7 +1056,7 @@ class RulesApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 
@@ -1149,7 +1149,7 @@ class RulesApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -1177,7 +1177,7 @@ class RulesApi
     /**
      * Operation rulesListAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $processId The ID of the process (required)
@@ -1200,7 +1200,7 @@ class RulesApi
     /**
      * Operation rulesListAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $processId The ID of the process (required)
@@ -1225,7 +1225,7 @@ class RulesApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -1345,7 +1345,7 @@ class RulesApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -1382,7 +1382,7 @@ class RulesApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 
@@ -1479,7 +1479,7 @@ class RulesApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -1507,7 +1507,7 @@ class RulesApi
     /**
      * Operation rulesUpdateAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  \FrankHouweling\AzureDevOpsClient\Processes\Model\UpdateProcessRuleRequest $body  (required)
@@ -1532,7 +1532,7 @@ class RulesApi
     /**
      * Operation rulesUpdateAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  \FrankHouweling\AzureDevOpsClient\Processes\Model\UpdateProcessRuleRequest $body  (required)
@@ -1559,7 +1559,7 @@ class RulesApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -1704,7 +1704,7 @@ class RulesApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -1741,7 +1741,7 @@ class RulesApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 

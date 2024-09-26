@@ -154,7 +154,7 @@ class DiagnosticsApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -182,7 +182,7 @@ class DiagnosticsApi
     /**
      * Operation diagnosticsGetAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $subscriptionId  (required)
@@ -204,7 +204,7 @@ class DiagnosticsApi
     /**
      * Operation diagnosticsGetAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $subscriptionId  (required)
@@ -228,7 +228,7 @@ class DiagnosticsApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -333,7 +333,7 @@ class DiagnosticsApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -366,7 +366,7 @@ class DiagnosticsApi
         }
 
         // this endpoint requires HTTP basic authentication
-        if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+        else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
             $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
         }
 
@@ -459,7 +459,7 @@ class DiagnosticsApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -487,7 +487,7 @@ class DiagnosticsApi
     /**
      * Operation diagnosticsUpdateAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  \FrankHouweling\AzureDevOpsClient\Hooks\Model\UpdateSubscripitonDiagnosticsParameters $body  (required)
@@ -510,7 +510,7 @@ class DiagnosticsApi
     /**
      * Operation diagnosticsUpdateAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  \FrankHouweling\AzureDevOpsClient\Hooks\Model\UpdateSubscripitonDiagnosticsParameters $body  (required)
@@ -535,7 +535,7 @@ class DiagnosticsApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -650,7 +650,7 @@ class DiagnosticsApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -683,7 +683,7 @@ class DiagnosticsApi
         }
 
         // this endpoint requires HTTP basic authentication
-        if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+        else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
             $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
         }
 

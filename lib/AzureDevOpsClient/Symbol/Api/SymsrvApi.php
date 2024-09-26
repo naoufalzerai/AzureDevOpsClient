@@ -159,7 +159,7 @@ class SymsrvApi
     /**
      * Operation symsrvGetAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $debugEntryClientKey A \&quot;client key\&quot; used by both ends of Microsoft&#39;s symbol protocol to identify a debug entry. The semantics of client key is governed by symsrv and is beyond the scope of this documentation. (required)
@@ -181,7 +181,7 @@ class SymsrvApi
     /**
      * Operation symsrvGetAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $debugEntryClientKey A \&quot;client key\&quot; used by both ends of Microsoft&#39;s symbol protocol to identify a debug entry. The semantics of client key is governed by symsrv and is beyond the scope of this documentation. (required)
@@ -296,7 +296,7 @@ class SymsrvApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -333,7 +333,7 @@ class SymsrvApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 

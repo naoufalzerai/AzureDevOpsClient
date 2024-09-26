@@ -152,7 +152,7 @@ class ListsApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -180,7 +180,7 @@ class ListsApi
     /**
      * Operation callListAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $apiVersion Version of the API to use.  This should be set to &#39;4.1-preview.1&#39; to use this version of the api. (required)
@@ -201,7 +201,7 @@ class ListsApi
     /**
      * Operation callListAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $apiVersion Version of the API to use.  This should be set to &#39;4.1-preview.1&#39; to use this version of the api. (required)
@@ -224,7 +224,7 @@ class ListsApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -314,7 +314,7 @@ class ListsApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -347,7 +347,7 @@ class ListsApi
         }
 
         // this endpoint requires HTTP basic authentication
-        if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+        else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
             $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
         }
 
@@ -438,7 +438,7 @@ class ListsApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -466,7 +466,7 @@ class ListsApi
     /**
      * Operation createAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  \FrankHouweling\AzureDevOpsClient\ProcessDefinitions\Model\PickListModel $body  (required)
@@ -488,7 +488,7 @@ class ListsApi
     /**
      * Operation createAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  \FrankHouweling\AzureDevOpsClient\ProcessDefinitions\Model\PickListModel $body  (required)
@@ -512,7 +512,7 @@ class ListsApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -612,7 +612,7 @@ class ListsApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -645,7 +645,7 @@ class ListsApi
         }
 
         // this endpoint requires HTTP basic authentication
-        if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+        else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
             $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
         }
 
@@ -741,7 +741,7 @@ class ListsApi
     /**
      * Operation deleteAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $listId The ID of the list (required)
@@ -763,7 +763,7 @@ class ListsApi
     /**
      * Operation deleteAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $listId The ID of the list (required)
@@ -878,7 +878,7 @@ class ListsApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -911,7 +911,7 @@ class ListsApi
         }
 
         // this endpoint requires HTTP basic authentication
-        if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+        else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
             $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
         }
 
@@ -1002,7 +1002,7 @@ class ListsApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -1030,7 +1030,7 @@ class ListsApi
     /**
      * Operation getAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $listId The ID of the list (required)
@@ -1052,7 +1052,7 @@ class ListsApi
     /**
      * Operation getAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $listId The ID of the list (required)
@@ -1076,7 +1076,7 @@ class ListsApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -1181,7 +1181,7 @@ class ListsApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -1214,7 +1214,7 @@ class ListsApi
         }
 
         // this endpoint requires HTTP basic authentication
-        if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+        else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
             $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
         }
 
@@ -1307,7 +1307,7 @@ class ListsApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -1335,7 +1335,7 @@ class ListsApi
     /**
      * Operation updateAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  \FrankHouweling\AzureDevOpsClient\ProcessDefinitions\Model\PickListModel $body  (required)
@@ -1358,7 +1358,7 @@ class ListsApi
     /**
      * Operation updateAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  \FrankHouweling\AzureDevOpsClient\ProcessDefinitions\Model\PickListModel $body  (required)
@@ -1383,7 +1383,7 @@ class ListsApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -1498,7 +1498,7 @@ class ListsApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -1531,7 +1531,7 @@ class ListsApi
         }
 
         // this endpoint requires HTTP basic authentication
-        if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+        else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
             $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
         }
 

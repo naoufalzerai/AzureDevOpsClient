@@ -154,7 +154,7 @@ class UserEntitlementsApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -182,7 +182,7 @@ class UserEntitlementsApi
     /**
      * Operation userEntitlementsAddAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  \FrankHouweling\AzureDevOpsClient\MemberEntitlementManagement\Model\UserEntitlement $body UserEntitlement object specifying License, Extensions and Project/Team groups the user should be added to. (required)
@@ -204,7 +204,7 @@ class UserEntitlementsApi
     /**
      * Operation userEntitlementsAddAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  \FrankHouweling\AzureDevOpsClient\MemberEntitlementManagement\Model\UserEntitlement $body UserEntitlement object specifying License, Extensions and Project/Team groups the user should be added to. (required)
@@ -228,7 +228,7 @@ class UserEntitlementsApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -328,7 +328,7 @@ class UserEntitlementsApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -365,7 +365,7 @@ class UserEntitlementsApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 
@@ -461,7 +461,7 @@ class UserEntitlementsApi
     /**
      * Operation userEntitlementsDeleteAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $userId ID of the user. (required)
@@ -483,7 +483,7 @@ class UserEntitlementsApi
     /**
      * Operation userEntitlementsDeleteAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $userId ID of the user. (required)
@@ -598,7 +598,7 @@ class UserEntitlementsApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -635,7 +635,7 @@ class UserEntitlementsApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 
@@ -726,7 +726,7 @@ class UserEntitlementsApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -754,7 +754,7 @@ class UserEntitlementsApi
     /**
      * Operation userEntitlementsGetAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $userId ID of the user. (required)
@@ -776,7 +776,7 @@ class UserEntitlementsApi
     /**
      * Operation userEntitlementsGetAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $userId ID of the user. (required)
@@ -800,7 +800,7 @@ class UserEntitlementsApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -905,7 +905,7 @@ class UserEntitlementsApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -942,7 +942,7 @@ class UserEntitlementsApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 
@@ -1039,7 +1039,7 @@ class UserEntitlementsApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -1067,7 +1067,7 @@ class UserEntitlementsApi
     /**
      * Operation userEntitlementsSearchUserEntitlementsAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $apiVersion Version of the API to use.  This should be set to &#39;6.0-preview.3&#39; to use this version of the api. (required)
@@ -1092,7 +1092,7 @@ class UserEntitlementsApi
     /**
      * Operation userEntitlementsSearchUserEntitlementsAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $apiVersion Version of the API to use.  This should be set to &#39;6.0-preview.3&#39; to use this version of the api. (required)
@@ -1119,7 +1119,7 @@ class UserEntitlementsApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -1229,7 +1229,7 @@ class UserEntitlementsApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -1266,7 +1266,7 @@ class UserEntitlementsApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 
@@ -1359,7 +1359,7 @@ class UserEntitlementsApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -1387,7 +1387,7 @@ class UserEntitlementsApi
     /**
      * Operation userEntitlementsUpdateUserEntitlementAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  \FrankHouweling\AzureDevOpsClient\MemberEntitlementManagement\Model\JsonPatchDocument $body JsonPatchDocument containing the operations to perform on the user. (required)
@@ -1410,7 +1410,7 @@ class UserEntitlementsApi
     /**
      * Operation userEntitlementsUpdateUserEntitlementAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  \FrankHouweling\AzureDevOpsClient\MemberEntitlementManagement\Model\JsonPatchDocument $body JsonPatchDocument containing the operations to perform on the user. (required)
@@ -1435,7 +1435,7 @@ class UserEntitlementsApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -1550,7 +1550,7 @@ class UserEntitlementsApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -1587,7 +1587,7 @@ class UserEntitlementsApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 
@@ -1680,7 +1680,7 @@ class UserEntitlementsApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -1708,7 +1708,7 @@ class UserEntitlementsApi
     /**
      * Operation userEntitlementsUpdateUserEntitlementsAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  \FrankHouweling\AzureDevOpsClient\MemberEntitlementManagement\Model\JsonPatchDocument $body JsonPatchDocument containing the operations to perform. (required)
@@ -1731,7 +1731,7 @@ class UserEntitlementsApi
     /**
      * Operation userEntitlementsUpdateUserEntitlementsAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  \FrankHouweling\AzureDevOpsClient\MemberEntitlementManagement\Model\JsonPatchDocument $body JsonPatchDocument containing the operations to perform. (required)
@@ -1756,7 +1756,7 @@ class UserEntitlementsApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -1861,7 +1861,7 @@ class UserEntitlementsApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -1898,7 +1898,7 @@ class UserEntitlementsApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 

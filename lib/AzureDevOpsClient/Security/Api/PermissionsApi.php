@@ -162,7 +162,7 @@ class PermissionsApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -190,7 +190,7 @@ class PermissionsApi
     /**
      * Operation permissionsHasPermissionsAsync
      *
-     * 
+     *
      *
      * @param  string $securityNamespaceId Security namespace identifier. (required)
      * @param  string $organization The name of the Azure DevOps organization. (required)
@@ -216,7 +216,7 @@ class PermissionsApi
     /**
      * Operation permissionsHasPermissionsAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $securityNamespaceId Security namespace identifier. (required)
      * @param  string $organization The name of the Azure DevOps organization. (required)
@@ -244,7 +244,7 @@ class PermissionsApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -379,7 +379,7 @@ class PermissionsApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -412,7 +412,7 @@ class PermissionsApi
         }
 
         // this endpoint requires HTTP basic authentication
-        if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+        else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
             $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
         }
 
@@ -503,7 +503,7 @@ class PermissionsApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -531,7 +531,7 @@ class PermissionsApi
     /**
      * Operation permissionsHasPermissionsBatchAsync
      *
-     * 
+     *
      *
      * @param  \FrankHouweling\AzureDevOpsClient\Security\Model\PermissionEvaluationBatch $body The set of evaluation requests. (required)
      * @param  string $organization The name of the Azure DevOps organization. (required)
@@ -553,7 +553,7 @@ class PermissionsApi
     /**
      * Operation permissionsHasPermissionsBatchAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  \FrankHouweling\AzureDevOpsClient\Security\Model\PermissionEvaluationBatch $body The set of evaluation requests. (required)
      * @param  string $organization The name of the Azure DevOps organization. (required)
@@ -577,7 +577,7 @@ class PermissionsApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -677,7 +677,7 @@ class PermissionsApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -710,7 +710,7 @@ class PermissionsApi
         }
 
         // this endpoint requires HTTP basic authentication
-        if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+        else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
             $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
         }
 
@@ -807,7 +807,7 @@ class PermissionsApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -835,7 +835,7 @@ class PermissionsApi
     /**
      * Operation permissionsRemovePermissionAsync
      *
-     * 
+     *
      *
      * @param  string $securityNamespaceId Security namespace identifier. (required)
      * @param  string $descriptor Identity descriptor of the user to remove permissions for. (required)
@@ -860,7 +860,7 @@ class PermissionsApi
     /**
      * Operation permissionsRemovePermissionAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $securityNamespaceId Security namespace identifier. (required)
      * @param  string $descriptor Identity descriptor of the user to remove permissions for. (required)
@@ -887,7 +887,7 @@ class PermissionsApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -1023,7 +1023,7 @@ class PermissionsApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -1060,7 +1060,7 @@ class PermissionsApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 

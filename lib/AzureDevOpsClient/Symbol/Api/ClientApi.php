@@ -154,7 +154,7 @@ class ClientApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -190,7 +190,7 @@ class ClientApi
     /**
      * Operation clientGetAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $clientType Either \&quot;EXE\&quot; for a zip file containing a Windows symbol client (a.k.a. symbol.exe) along with dependencies, or \&quot;TASK\&quot; for a VSTS task that can be run on a VSTS build agent. All the other values are invalid. The parameter is case-insensitive. (required)
@@ -212,7 +212,7 @@ class ClientApi
     /**
      * Operation clientGetAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $clientType Either \&quot;EXE\&quot; for a zip file containing a Windows symbol client (a.k.a. symbol.exe) along with dependencies, or \&quot;TASK\&quot; for a VSTS task that can be run on a VSTS build agent. All the other values are invalid. The parameter is case-insensitive. (required)
@@ -236,7 +236,7 @@ class ClientApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -341,7 +341,7 @@ class ClientApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -374,7 +374,7 @@ class ClientApi
         }
 
         // this endpoint requires HTTP basic authentication
-        if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+        else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
             $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
         }
 
@@ -468,7 +468,7 @@ class ClientApi
     /**
      * Operation clientHeadClientAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $apiVersion Version of the API to use.  This should be set to &#39;6.0-preview.1&#39; to use this version of the api. (required)
@@ -489,7 +489,7 @@ class ClientApi
     /**
      * Operation clientHeadClientAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $apiVersion Version of the API to use.  This should be set to &#39;6.0-preview.1&#39; to use this version of the api. (required)
@@ -588,7 +588,7 @@ class ClientApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -621,7 +621,7 @@ class ClientApi
         }
 
         // this endpoint requires HTTP basic authentication
-        if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+        else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
             $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
         }
 

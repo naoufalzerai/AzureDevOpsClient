@@ -162,7 +162,7 @@ class ProfilesApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -190,7 +190,7 @@ class ProfilesApi
     /**
      * Operation profilesGetAsync
      *
-     * 
+     *
      *
      * @param  string $id The ID of the target user profile within the same organization, or &#39;me&#39; to get the profile of the current authenticated user. (required)
      * @param  string $apiVersion Version of the API to use.  This should be set to &#39;6.0-preview.3&#39; to use this version of the api. (required)
@@ -216,7 +216,7 @@ class ProfilesApi
     /**
      * Operation profilesGetAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $id The ID of the target user profile within the same organization, or &#39;me&#39; to get the profile of the current authenticated user. (required)
      * @param  string $apiVersion Version of the API to use.  This should be set to &#39;6.0-preview.3&#39; to use this version of the api. (required)
@@ -244,7 +244,7 @@ class ProfilesApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -359,7 +359,7 @@ class ProfilesApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -396,7 +396,7 @@ class ProfilesApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 

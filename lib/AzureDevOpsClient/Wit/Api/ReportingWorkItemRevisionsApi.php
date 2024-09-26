@@ -176,7 +176,7 @@ class ReportingWorkItemRevisionsApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -204,7 +204,7 @@ class ReportingWorkItemRevisionsApi
     /**
      * Operation reportingWorkItemRevisionsReadReportingRevisionsGetAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $project Project ID or project name (required)
@@ -237,7 +237,7 @@ class ReportingWorkItemRevisionsApi
     /**
      * Operation reportingWorkItemRevisionsReadReportingRevisionsGetAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $project Project ID or project name (required)
@@ -272,7 +272,7 @@ class ReportingWorkItemRevisionsApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -432,7 +432,7 @@ class ReportingWorkItemRevisionsApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -469,7 +469,7 @@ class ReportingWorkItemRevisionsApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 
@@ -568,7 +568,7 @@ class ReportingWorkItemRevisionsApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -596,7 +596,7 @@ class ReportingWorkItemRevisionsApi
     /**
      * Operation reportingWorkItemRevisionsReadReportingRevisionsPostAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  \FrankHouweling\AzureDevOpsClient\Wit\Model\ReportingWorkItemRevisionsFilter $body An object that contains request settings: field filter, type filter, identity format (required)
@@ -622,7 +622,7 @@ class ReportingWorkItemRevisionsApi
     /**
      * Operation reportingWorkItemRevisionsReadReportingRevisionsPostAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  \FrankHouweling\AzureDevOpsClient\Wit\Model\ReportingWorkItemRevisionsFilter $body An object that contains request settings: field filter, type filter, identity format (required)
@@ -650,7 +650,7 @@ class ReportingWorkItemRevisionsApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -780,7 +780,7 @@ class ReportingWorkItemRevisionsApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -817,7 +817,7 @@ class ReportingWorkItemRevisionsApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 

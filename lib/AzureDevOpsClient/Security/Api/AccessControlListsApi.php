@@ -162,7 +162,7 @@ class AccessControlListsApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -190,7 +190,7 @@ class AccessControlListsApi
     /**
      * Operation accessControlListsQueryAsync
      *
-     * 
+     *
      *
      * @param  string $securityNamespaceId Security namespace identifier. (required)
      * @param  string $organization The name of the Azure DevOps organization. (required)
@@ -216,7 +216,7 @@ class AccessControlListsApi
     /**
      * Operation accessControlListsQueryAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $securityNamespaceId Security namespace identifier. (required)
      * @param  string $organization The name of the Azure DevOps organization. (required)
@@ -244,7 +244,7 @@ class AccessControlListsApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -369,7 +369,7 @@ class AccessControlListsApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -402,7 +402,7 @@ class AccessControlListsApi
         }
 
         // this endpoint requires HTTP basic authentication
-        if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+        else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
             $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
         }
 
@@ -497,7 +497,7 @@ class AccessControlListsApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -525,7 +525,7 @@ class AccessControlListsApi
     /**
      * Operation accessControlListsRemoveAccessControlListsAsync
      *
-     * 
+     *
      *
      * @param  string $securityNamespaceId Security namespace identifier. (required)
      * @param  string $organization The name of the Azure DevOps organization. (required)
@@ -549,7 +549,7 @@ class AccessControlListsApi
     /**
      * Operation accessControlListsRemoveAccessControlListsAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $securityNamespaceId Security namespace identifier. (required)
      * @param  string $organization The name of the Azure DevOps organization. (required)
@@ -575,7 +575,7 @@ class AccessControlListsApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -690,7 +690,7 @@ class AccessControlListsApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -727,7 +727,7 @@ class AccessControlListsApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 
@@ -825,7 +825,7 @@ class AccessControlListsApi
     /**
      * Operation accessControlListsSetAccessControlListsAsync
      *
-     * 
+     *
      *
      * @param  \FrankHouweling\AzureDevOpsClient\Security\Model\VssJsonCollectionWrapper $body A list of ACLs to create or update. (required)
      * @param  string $securityNamespaceId Security namespace identifier. (required)
@@ -848,7 +848,7 @@ class AccessControlListsApi
     /**
      * Operation accessControlListsSetAccessControlListsAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  \FrankHouweling\AzureDevOpsClient\Security\Model\VssJsonCollectionWrapper $body A list of ACLs to create or update. (required)
      * @param  string $securityNamespaceId Security namespace identifier. (required)
@@ -974,7 +974,7 @@ class AccessControlListsApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -1011,7 +1011,7 @@ class AccessControlListsApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 

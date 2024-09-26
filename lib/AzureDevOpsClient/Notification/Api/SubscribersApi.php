@@ -154,7 +154,7 @@ class SubscribersApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -182,7 +182,7 @@ class SubscribersApi
     /**
      * Operation subscribersGetAsync
      *
-     * 
+     *
      *
      * @param  string $subscriberId ID of the user or group. (required)
      * @param  string $organization The name of the Azure DevOps organization. (required)
@@ -204,7 +204,7 @@ class SubscribersApi
     /**
      * Operation subscribersGetAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $subscriberId ID of the user or group. (required)
      * @param  string $organization The name of the Azure DevOps organization. (required)
@@ -228,7 +228,7 @@ class SubscribersApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -333,7 +333,7 @@ class SubscribersApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -370,7 +370,7 @@ class SubscribersApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 
@@ -463,7 +463,7 @@ class SubscribersApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -491,7 +491,7 @@ class SubscribersApi
     /**
      * Operation subscribersUpdateAsync
      *
-     * 
+     *
      *
      * @param  \FrankHouweling\AzureDevOpsClient\Notification\Model\NotificationSubscriberUpdateParameters $body  (required)
      * @param  string $subscriberId ID of the user or group. (required)
@@ -514,7 +514,7 @@ class SubscribersApi
     /**
      * Operation subscribersUpdateAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  \FrankHouweling\AzureDevOpsClient\Notification\Model\NotificationSubscriberUpdateParameters $body  (required)
      * @param  string $subscriberId ID of the user or group. (required)
@@ -539,7 +539,7 @@ class SubscribersApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -654,7 +654,7 @@ class SubscribersApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -691,7 +691,7 @@ class SubscribersApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 

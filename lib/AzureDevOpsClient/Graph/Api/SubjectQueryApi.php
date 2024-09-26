@@ -154,7 +154,7 @@ class SubjectQueryApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -182,7 +182,7 @@ class SubjectQueryApi
     /**
      * Operation subjectQueryQueryAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  \FrankHouweling\AzureDevOpsClient\Graph\Model\GraphSubjectQuery $body The query that we&#39;ll be using to search includes the following: Query: the search term. The search will be prefix matching only. SubjectKind: \&quot;User\&quot; or \&quot;Group\&quot; can be specified, both or either ScopeDescriptor: Non-default scope can be specified, i.e. project scope descriptor (required)
@@ -204,7 +204,7 @@ class SubjectQueryApi
     /**
      * Operation subjectQueryQueryAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  \FrankHouweling\AzureDevOpsClient\Graph\Model\GraphSubjectQuery $body The query that we&#39;ll be using to search includes the following: Query: the search term. The search will be prefix matching only. SubjectKind: \&quot;User\&quot; or \&quot;Group\&quot; can be specified, both or either ScopeDescriptor: Non-default scope can be specified, i.e. project scope descriptor (required)
@@ -228,7 +228,7 @@ class SubjectQueryApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -328,7 +328,7 @@ class SubjectQueryApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -361,7 +361,7 @@ class SubjectQueryApi
         }
 
         // this endpoint requires HTTP basic authentication
-        if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+        else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
             $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
         }
 

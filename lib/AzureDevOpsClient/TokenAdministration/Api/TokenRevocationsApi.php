@@ -161,7 +161,7 @@ class TokenRevocationsApi
     /**
      * Operation tokenRevocationsRevokeAuthorizationsAsync
      *
-     * 
+     *
      *
      * @param  \FrankHouweling\AzureDevOpsClient\TokenAdministration\Model\TokenAdministrationRevocation $body The list of objects containing the authorization IDs of the OAuth authorizations, such as session tokens retrieved by listed a users PATs, that should be revoked. (required)
      * @param  string $hostId Host Id to display on the notification page to manage tokens. (required)
@@ -184,7 +184,7 @@ class TokenRevocationsApi
     /**
      * Operation tokenRevocationsRevokeAuthorizationsAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  \FrankHouweling\AzureDevOpsClient\TokenAdministration\Model\TokenAdministrationRevocation $body The list of objects containing the authorization IDs of the OAuth authorizations, such as session tokens retrieved by listed a users PATs, that should be revoked. (required)
      * @param  string $hostId Host Id to display on the notification page to manage tokens. (required)
@@ -296,7 +296,7 @@ class TokenRevocationsApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -333,7 +333,7 @@ class TokenRevocationsApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 

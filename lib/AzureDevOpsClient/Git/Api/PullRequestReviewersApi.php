@@ -162,7 +162,7 @@ class PullRequestReviewersApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -190,7 +190,7 @@ class PullRequestReviewersApi
     /**
      * Operation pullRequestReviewersCreatePullRequestReviewerAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  \FrankHouweling\AzureDevOpsClient\Git\Model\IdentityRefWithVote $body Reviewer&#39;s vote.&lt;br /&gt;If the reviewer&#39;s ID is included here, it must match the reviewerID parameter.&lt;br /&gt;Reviewers can set their own vote with this method.  When adding other reviewers, vote must be set to zero. (required)
@@ -216,7 +216,7 @@ class PullRequestReviewersApi
     /**
      * Operation pullRequestReviewersCreatePullRequestReviewerAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  \FrankHouweling\AzureDevOpsClient\Git\Model\IdentityRefWithVote $body Reviewer&#39;s vote.&lt;br /&gt;If the reviewer&#39;s ID is included here, it must match the reviewerID parameter.&lt;br /&gt;Reviewers can set their own vote with this method.  When adding other reviewers, vote must be set to zero. (required)
@@ -244,7 +244,7 @@ class PullRequestReviewersApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -404,7 +404,7 @@ class PullRequestReviewersApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -441,7 +441,7 @@ class PullRequestReviewersApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 
@@ -538,7 +538,7 @@ class PullRequestReviewersApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -566,7 +566,7 @@ class PullRequestReviewersApi
     /**
      * Operation pullRequestReviewersCreatePullRequestReviewersAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  \FrankHouweling\AzureDevOpsClient\Git\Model\IdentityRef[] $body Reviewers to add to the pull request. (required)
@@ -591,7 +591,7 @@ class PullRequestReviewersApi
     /**
      * Operation pullRequestReviewersCreatePullRequestReviewersAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  \FrankHouweling\AzureDevOpsClient\Git\Model\IdentityRef[] $body Reviewers to add to the pull request. (required)
@@ -618,7 +618,7 @@ class PullRequestReviewersApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -763,7 +763,7 @@ class PullRequestReviewersApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -800,7 +800,7 @@ class PullRequestReviewersApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 
@@ -902,7 +902,7 @@ class PullRequestReviewersApi
     /**
      * Operation pullRequestReviewersDeleteAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $repositoryId The repository ID of the pull request’s target branch. (required)
@@ -927,7 +927,7 @@ class PullRequestReviewersApi
     /**
      * Operation pullRequestReviewersDeleteAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $repositoryId The repository ID of the pull request’s target branch. (required)
@@ -1090,7 +1090,7 @@ class PullRequestReviewersApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -1127,7 +1127,7 @@ class PullRequestReviewersApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 
@@ -1224,7 +1224,7 @@ class PullRequestReviewersApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -1252,7 +1252,7 @@ class PullRequestReviewersApi
     /**
      * Operation pullRequestReviewersGetAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $repositoryId The repository ID of the pull request’s target branch. (required)
@@ -1277,7 +1277,7 @@ class PullRequestReviewersApi
     /**
      * Operation pullRequestReviewersGetAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $repositoryId The repository ID of the pull request’s target branch. (required)
@@ -1304,7 +1304,7 @@ class PullRequestReviewersApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -1454,7 +1454,7 @@ class PullRequestReviewersApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -1491,7 +1491,7 @@ class PullRequestReviewersApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 
@@ -1586,7 +1586,7 @@ class PullRequestReviewersApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -1614,7 +1614,7 @@ class PullRequestReviewersApi
     /**
      * Operation pullRequestReviewersListAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $repositoryId The repository ID of the pull request’s target branch. (required)
@@ -1638,7 +1638,7 @@ class PullRequestReviewersApi
     /**
      * Operation pullRequestReviewersListAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  string $repositoryId The repository ID of the pull request’s target branch. (required)
@@ -1664,7 +1664,7 @@ class PullRequestReviewersApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -1799,7 +1799,7 @@ class PullRequestReviewersApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -1836,7 +1836,7 @@ class PullRequestReviewersApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 
@@ -1935,7 +1935,7 @@ class PullRequestReviewersApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -1963,7 +1963,7 @@ class PullRequestReviewersApi
     /**
      * Operation pullRequestReviewersUpdatePullRequestReviewerAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  \FrankHouweling\AzureDevOpsClient\Git\Model\IdentityRefWithVote $body Reviewer data.&lt;br /&gt;If the reviewer&#39;s ID is included here, it must match the reviewerID parameter. (required)
@@ -1989,7 +1989,7 @@ class PullRequestReviewersApi
     /**
      * Operation pullRequestReviewersUpdatePullRequestReviewerAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  \FrankHouweling\AzureDevOpsClient\Git\Model\IdentityRefWithVote $body Reviewer data.&lt;br /&gt;If the reviewer&#39;s ID is included here, it must match the reviewerID parameter. (required)
@@ -2017,7 +2017,7 @@ class PullRequestReviewersApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -2177,7 +2177,7 @@ class PullRequestReviewersApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -2214,7 +2214,7 @@ class PullRequestReviewersApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 
@@ -2316,7 +2316,7 @@ class PullRequestReviewersApi
     /**
      * Operation pullRequestReviewersUpdatePullRequestReviewersAsync
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  \FrankHouweling\AzureDevOpsClient\Git\Model\IdentityRefWithVote[] $body IDs of the reviewers whose votes will be reset to zero (required)
@@ -2341,7 +2341,7 @@ class PullRequestReviewersApi
     /**
      * Operation pullRequestReviewersUpdatePullRequestReviewersAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $organization The name of the Azure DevOps organization. (required)
      * @param  \FrankHouweling\AzureDevOpsClient\Git\Model\IdentityRefWithVote[] $body IDs of the reviewers whose votes will be reset to zero (required)
@@ -2499,7 +2499,7 @@ class PullRequestReviewersApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -2536,7 +2536,7 @@ class PullRequestReviewersApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 

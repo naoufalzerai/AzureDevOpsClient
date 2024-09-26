@@ -158,7 +158,7 @@ class AccessControlEntriesApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -186,7 +186,7 @@ class AccessControlEntriesApi
     /**
      * Operation accessControlEntriesRemoveAccessControlEntriesAsync
      *
-     * 
+     *
      *
      * @param  string $securityNamespaceId Security namespace identifier. (required)
      * @param  string $organization The name of the Azure DevOps organization. (required)
@@ -210,7 +210,7 @@ class AccessControlEntriesApi
     /**
      * Operation accessControlEntriesRemoveAccessControlEntriesAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $securityNamespaceId Security namespace identifier. (required)
      * @param  string $organization The name of the Azure DevOps organization. (required)
@@ -236,7 +236,7 @@ class AccessControlEntriesApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -351,7 +351,7 @@ class AccessControlEntriesApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -388,7 +388,7 @@ class AccessControlEntriesApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 
@@ -481,7 +481,7 @@ class AccessControlEntriesApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -509,7 +509,7 @@ class AccessControlEntriesApi
     /**
      * Operation accessControlEntriesSetAccessControlEntriesAsync
      *
-     * 
+     *
      *
      * @param  \FrankHouweling\AzureDevOpsClient\ComponentGovernance\Model\JObject $body  (required)
      * @param  string $securityNamespaceId Security namespace identifier. (required)
@@ -532,7 +532,7 @@ class AccessControlEntriesApi
     /**
      * Operation accessControlEntriesSetAccessControlEntriesAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  \FrankHouweling\AzureDevOpsClient\ComponentGovernance\Model\JObject $body  (required)
      * @param  string $securityNamespaceId Security namespace identifier. (required)
@@ -557,7 +557,7 @@ class AccessControlEntriesApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -672,7 +672,7 @@ class AccessControlEntriesApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -709,7 +709,7 @@ class AccessControlEntriesApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 

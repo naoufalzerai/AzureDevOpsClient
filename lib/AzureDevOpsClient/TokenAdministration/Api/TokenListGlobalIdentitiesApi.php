@@ -159,7 +159,7 @@ class TokenListGlobalIdentitiesApi
     /**
      * Operation tokenListGlobalIdentitiesListAsync
      *
-     * 
+     *
      *
      * @param  \FrankHouweling\AzureDevOpsClient\TokenAdministration\Model\TokenAdminRevocation[] $body The list of identities containing the authorization IDs of the OAuth authorizations, such as session tokens retrieved by listed a users PATs, that should be checked for global access tokens. (required)
      * @param  string $apiVersion Version of the API to use.  This should be set to &#39;6.0-preview.1&#39; to use this version of the api. (required)
@@ -181,7 +181,7 @@ class TokenListGlobalIdentitiesApi
     /**
      * Operation tokenListGlobalIdentitiesListAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  \FrankHouweling\AzureDevOpsClient\TokenAdministration\Model\TokenAdminRevocation[] $body The list of identities containing the authorization IDs of the OAuth authorizations, such as session tokens retrieved by listed a users PATs, that should be checked for global access tokens. (required)
      * @param  string $apiVersion Version of the API to use.  This should be set to &#39;6.0-preview.1&#39; to use this version of the api. (required)
@@ -281,7 +281,7 @@ class TokenListGlobalIdentitiesApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -318,7 +318,7 @@ class TokenListGlobalIdentitiesApi
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
-		if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+		else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 

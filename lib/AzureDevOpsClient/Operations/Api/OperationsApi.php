@@ -156,7 +156,7 @@ class OperationsApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    $content = json_decode($content)->value;
                 }
             }
 
@@ -184,7 +184,7 @@ class OperationsApi
     /**
      * Operation operationsGetAsync
      *
-     * 
+     *
      *
      * @param  string $operationId The ID for the operation. (required)
      * @param  string $organization The name of the Azure DevOps organization. (required)
@@ -207,7 +207,7 @@ class OperationsApi
     /**
      * Operation operationsGetAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $operationId The ID for the operation. (required)
      * @param  string $organization The name of the Azure DevOps organization. (required)
@@ -232,7 +232,7 @@ class OperationsApi
                     } else {
                         $content = $responseBody->getContents();
                         if ($returnType !== 'string') {
-                            $content = json_decode($content);
+                            $content = json_decode($content)->value;
                         }
                     }
 
@@ -342,7 +342,7 @@ class OperationsApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
-            
+
             if($headers['Content-Type'] === 'application/json') {
                 // \stdClass has no __toString(), so we should encode it manually
                 if ($httpBody instanceof \stdClass) {
@@ -375,7 +375,7 @@ class OperationsApi
         }
 
         // this endpoint requires HTTP basic authentication
-        if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+        else if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
             $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
         }
 
