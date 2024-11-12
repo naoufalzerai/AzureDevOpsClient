@@ -160,7 +160,7 @@ class PullRequestsApi
             } else {
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content)->value;
+                    $content = json_decode($content);
                 }
             }
 
